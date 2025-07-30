@@ -1,5 +1,7 @@
 package Principal;
 
+import java.util.Scanner;
+
 // Compra finalizada
 public class Compra {
     private ItemCompra itensComprados;
@@ -26,4 +28,6 @@ public class Compra {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+
 }

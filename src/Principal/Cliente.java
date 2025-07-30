@@ -1,6 +1,11 @@
 package Principal;
 
+import Util.Aplicacao;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import static Principal.Ecommerce.scanner;
 
 // Cliente e carrinho associado
 public class Cliente {
@@ -15,8 +20,8 @@ public class Cliente {
     }
 
     // Criar cliente com carrinho cheio
-    public Cliente(List<Produto> carrinhoAssociado, String nome) {
-        this.carrinhoAssociado = new ItemCompra(carrinhoAssociado);
+    public Cliente(ItemCompra carrinhoAssociado, String nome) {
+        this.carrinhoAssociado = new ItemCompra(carrinhoAssociado.getItensDoCarrinho());
         setNome(nome);
     }
     public Cliente(String nome, List<Produto> carrinhoAssociado) {
@@ -38,5 +43,24 @@ public class Cliente {
 
     public void setCarrinhoAssociado(ItemCompra carrinhoAssociado) {
         this.carrinhoAssociado = carrinhoAssociado;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", carrinhoAssociado=" + carrinhoAssociado +
+                '}';
+    }
+
+    public static Cliente cadastrarCliente() {
+        System.out.println("Informe o nome do cliente:");
+        return new Cliente(scanner.nextLine());
+    }
+
+    public static void visualizarClientes(List<Cliente> tabelaClientes) {
+        for (Cliente c : tabelaClientes) {
+            System.out.println(c);
+        }
     }
 }
