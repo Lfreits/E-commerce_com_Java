@@ -29,8 +29,8 @@ public class ExibirMenus {
         System.out.println("---------- Menu de produtos ----------\n" +
                 "Escolha uma opção a seguir:\n" +
                 "1 -> Visualizar produtos cadastrados\n" +
-                "2 -> Cadastrar cliente\n" +
-                "3 -> Remover cliente\n" +
+                "2 -> Cadastrar produto\n" +
+                "3 -> Remover produto\n" +
                 "4 -> Editar produto\n" +
                 "0 -> Voltar ao menu anterior\n");
     }

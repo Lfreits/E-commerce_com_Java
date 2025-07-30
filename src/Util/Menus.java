@@ -6,9 +6,9 @@ import static javafx.application.Platform.exit;
 
 public class Menus {
     Scanner scanner = new Scanner(System.in);
+    ExibirMenus menu = new ExibirMenus();
 
     public void menuPrincipal() {
-        ExibirMenus menu = new ExibirMenus();
         menu.menuPrincipal();
         switch (scanner.nextInt()) {
             case 1: menu.subMenuCliente();
@@ -20,14 +20,30 @@ public class Menus {
     }
 
     public void subMenuCliente() {
-
+        switch (scanner.nextInt()) {
+            case 1: // Visualizar clientes cadastrados
+            case 2: // Cadastrar cliente
+            case 3: // Remover cliente
+            case 0: menu.menuPrincipal();
+        }
     }
 
     public void subMenuProdutos() {
-
+        switch (scanner.nextInt()) {
+            case 1: // Visualizar produtos cadastrados
+            case 2: // Cadastrar produto
+            case 3: // Remover produto
+            case 4: // Editar produto
+            case 0: menu.menuPrincipal();
+        }
     }
 
     public void subMenuCarrinho() {
-
+        switch (scanner.nextInt()) {
+            case 1: // Adicionar item
+            case 2: // Remover item
+            case 3: // Ver outro carrinho
+            case 0: menu.menuPrincipal();
+        }
     }
 }
