@@ -14,6 +14,7 @@ import static javafx.application.Platform.exit;
 public class Aplicacao {
 
     List<Cliente> tabelaClientes = new ArrayList<>();
+    List<Produto> tabelaProdutos = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
     ExibirMenus menu = new ExibirMenus();
@@ -33,7 +34,7 @@ public class Aplicacao {
         menu.subMenuCliente();
         switch (scanner.nextInt()) {
             case 1: Cliente.visualizarClientes(tabelaClientes); break;
-            case 2: Cliente.cadastrarCliente(tabelaClientes); break;// Cadastrar cliente
+            case 2: Cliente.cadastrarCliente(tabelaClientes); break;
             case 3: Cliente.removerCliente(tabelaClientes); break;
             case 0: menu.menuPrincipal(); break;
         }
@@ -42,10 +43,10 @@ public class Aplicacao {
     public void subMenuProdutos() {
         menu.subMenuProdutos();
         switch (scanner.nextInt()) {
-            case 1: // Visualizar produtos cadastrados
-            case 2: // Cadastrar produto
-            case 3: // Remover produto
-            case 4: // Editar produto
+            case 1: Produto.visualizarProdutos(tabelaProdutos);
+            case 2: Produto.cadastrarProduto(tabelaProdutos);
+            case 3: Produto.removerProduto(tabelaProdutos);
+            case 4: Produto.editarProduto(tabelaProdutos);
             case 0: menu.menuPrincipal(); break;
         }
     }
