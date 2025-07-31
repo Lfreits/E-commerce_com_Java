@@ -41,6 +41,7 @@ public class ExibirMenus {
                 "1 -> Adicionar item\n" +
                 "2 -> Remover item\n" +
                 "3 -> Ver outro carrinho\n" +
+                "4 -> Comprar itens do carrinho\n" +
                 "0 -> Voltar ao menu anterior\n");
     }
 }

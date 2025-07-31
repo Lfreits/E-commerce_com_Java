@@ -15,16 +15,6 @@ public class Cliente {
         setNome(nome);
     }
 
-    // Criar cliente com carrinho cheio
-    public Cliente(ItemCompra carrinhoAssociado, String nome) {
-        this.carrinhoAssociado = new ItemCompra(carrinhoAssociado.getItensDoCarrinho());
-        setNome(nome);
-    }
-    public Cliente(String nome, List<Produto> carrinhoAssociado) {
-        this.carrinhoAssociado = new ItemCompra(carrinhoAssociado);
-        setNome(nome);
-    }
-
     public String getNome() {
         return nome;
     }
