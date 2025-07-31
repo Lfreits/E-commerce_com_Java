@@ -21,24 +21,26 @@ public class Aplicacao {
     public void menuPrincipal() {
         menu.menuPrincipal();
         switch (scanner.nextInt()) {
-            case 1: menu.subMenuCliente(); break;
-            case 2: menu.subMenuProdutos(); break;
+            case 1: subMenuCliente(); break;
+            case 2: subMenuProdutos(); break;
             case 3: ; // Perguntar qual cliente e já mostrar o carrinho
-            case 4: menu.subMenuCarrinho(); break;
+            case 4: subMenuCarrinho(); break;
             case 0: exit(); break;
         }
     }
 
     public void subMenuCliente() {
+        menu.subMenuCliente();
         switch (scanner.nextInt()) {
             case 1: Cliente.visualizarClientes(tabelaClientes); break;
-            case 2: tabelaClientes.add(Cliente.cadastrarCliente()); break;// Cadastrar cliente
-            case 3: // Remover cliente
+            case 2: Cliente.cadastrarCliente(tabelaClientes); break;// Cadastrar cliente
+            case 3: Cliente.removerCliente(tabelaClientes); break;
             case 0: menu.menuPrincipal(); break;
         }
     }
 
     public void subMenuProdutos() {
+        menu.subMenuProdutos();
         switch (scanner.nextInt()) {
             case 1: // Visualizar produtos cadastrados
             case 2: // Cadastrar produto
@@ -49,6 +51,7 @@ public class Aplicacao {
     }
 
     public void subMenuCarrinho() {
+        menu.subMenuCarrinho();
         switch (scanner.nextInt()) {
             case 1: // Adicionar item
             case 2: // Remover item
