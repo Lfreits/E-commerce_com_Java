@@ -1,10 +1,6 @@
 package Principal;
 
-import Util.Aplicacao;
-
 import java.util.List;
-import java.util.Scanner;
-
 import static Principal.Ecommerce.scanner;
 
 // Compra finalizada

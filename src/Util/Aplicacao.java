@@ -9,15 +9,14 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
-import static javafx.application.Platform.exit;
+import static sun.org.mozilla.javascript.internal.Context.exit;
 
 public class Aplicacao {
 
-    List<Cliente> tabelaClientes = new ArrayList<>();
-    List<Produto> tabelaProdutos = new ArrayList<>();
-    List<Compra> tabelaCompras = new ArrayList<>();
-    List<ItemCompra> tabelaCarrinho = new ArrayList<>();
+    List<Cliente> tabelaClientes = new ArrayList<Cliente>();
+    List<Produto> tabelaProdutos = new ArrayList<Produto>();
+    List<Compra> tabelaCompras = new ArrayList<Compra>();
+    List<ItemCompra> tabelaCarrinho = new ArrayList<ItemCompra>();
 
     Scanner scanner = new Scanner(System.in);
     ExibirMenus menu = new ExibirMenus();
