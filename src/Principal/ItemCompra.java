@@ -26,6 +26,14 @@ public class ItemCompra {
         this.itensDoCarrinho = itensDoCarrinho;
     }
 
+    @Override
+    public String toString() {
+        return "ItemCompra{" +
+                "itensDoCarrinho=" + itensDoCarrinho +
+                ", cliente=" + cliente +
+                '}';
+    }
+
     public static void adicionarItemNoCarrinho(List<ItemCompra> tabelaCarrinho, List<Produto> tabelaProdutos) {
         String donoCarrinho;
         boolean clienteEncontrado = false;
@@ -34,11 +42,13 @@ public class ItemCompra {
         donoCarrinho = scanner.nextLine();
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
+                // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
                     System.out.println("Informe o nome do produto:");
                     String nomeProduto = scanner.nextLine();
                     while (!produtoEncontrado) {
                         for (Produto p : tabelaProdutos) {
+                            // Entra se o produto digitado existir
                             if (p.getNomeDoProduto().equalsIgnoreCase(nomeProduto)) {
                                 i.itensDoCarrinho.add(p);
                                 produtoEncontrado = true;
@@ -67,12 +77,15 @@ public class ItemCompra {
         donoCarrinho = scanner.nextLine();
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
+                // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
                     System.out.println("Informe o nome do produto a ser removido:");
                     String nomeProduto = scanner.nextLine();
                     while (!produtoEncontrado) {
                         for (Produto p : tabelaProdutos) {
+                            // Entra se o produto digitado existir
                             if (p.getNomeDoProduto().equalsIgnoreCase(nomeProduto)) {
+                                // Entra se o produto digitado estiver no carrinho
                                 if (i.getItensDoCarrinho().contains(p)){
                                     i.itensDoCarrinho.remove(p);
                                 produtoEncontrado = true;
@@ -103,6 +116,7 @@ public class ItemCompra {
         boolean clienteEncontrado = false;
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
+                // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
                     Compra compra = new Compra(i);
                     tabelaCompras.add(compra);

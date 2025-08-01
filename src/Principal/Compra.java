@@ -34,13 +34,23 @@ public class Compra {
         this.cliente = cliente;
     }
 
+    @Override
+    public String toString() {
+        return "Compra{" +
+                "itensComprados=" + itensComprados +
+                ", cliente=" + cliente +
+                '}';
+    }
+
     public static void mostrarHistoricoDeCompras(List<Compra> tabelaCompras) {
         System.out.println("Histórico de compras de qual cliente? ");
         String nomeCliente = scanner.nextLine();
         boolean encontrado = false;
-        do {
+        // Fica perguntando até encontrar o cliente
+        while (!encontrado) {
             for (Compra c : tabelaCompras) {
                 if (c.cliente.getNome().equalsIgnoreCase(nomeCliente)) {
+                    System.out.println(c.itensComprados);
                     encontrado = true;
                 } else {
                     System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
@@ -50,7 +60,7 @@ public class Compra {
                     }
                 }
             }
-        } while (!encontrado);
-
+        }
+        Ecommerce.app.menuPrincipal();
     }
 }
