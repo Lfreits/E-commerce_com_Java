@@ -8,7 +8,7 @@ import static Principal.Ecommerce.scanner;
 // Carrinho de compras
 public class ItemCompra {
 
-    private List<Produto> itensDoCarrinho = new ArrayList<Produto>();
+    private List<Produto> itensDoCarrinho = new LinkedList<Produto>();
     private Cliente cliente;
 
     // Lista de produtos no Carrinho
