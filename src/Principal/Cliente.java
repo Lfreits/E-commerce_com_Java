@@ -11,7 +11,7 @@ public class Cliente {
 
     // Criar cliente com carrinho vazio
     public Cliente(String nome) {
-        this.carrinhoAssociado = new ItemCompra();
+        this.carrinhoAssociado = new ItemCompra(this);
         setNome(nome);
     }
 

@@ -13,9 +13,11 @@ public class ItemCompra {
 
     // Lista de produtos no Carrinho
     public ItemCompra(Cliente cliente, List<Produto> itensDoCarrinho) {
-        this.itensDoCarrinho = itensDoCarrinho; this.cliente = cliente;
+        this.itensDoCarrinho = itensDoCarrinho;
+        this.cliente = cliente;
     }
-    public ItemCompra() {
+    public ItemCompra(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public List<Produto> getItensDoCarrinho() {
