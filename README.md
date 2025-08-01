@@ -63,8 +63,8 @@ O arquivo `pom.xml` já está configurado para compilar o projeto com compatibil
 
 ## 🧾 Proposta inicial (fornecida pelo curso)
 
-> Abaixo está a proposta original do desafio, fornecida pelos instrutores do curso.
-> O objetivo era seguir esse escopo como ponto de partida para o desenvolvimento:
+Abaixo está a proposta original do desafio, fornecida pelos instrutores do curso.
+O objetivo era seguir esse escopo como ponto de partida para o desenvolvimento:
 
 > ### Objetivo:
 > - Simular um sistema de e-commerce simples com produtos, clientes e compras.
