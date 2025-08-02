@@ -43,7 +43,6 @@ public class Produto {
         String nome = null;
         Integer preco = null;
         boolean entradaValida = false;
-        scanner.nextLine();
         System.out.println("Informe o nome do produto: ");
         nome = scanner.nextLine();
         System.out.println("Informe o preço do produto: ");
@@ -64,7 +63,6 @@ public class Produto {
     }
     public static void removerProduto(List<Produto> tabelaProdutos) {
         String nome = null;
-        scanner.nextLine();
         System.out.println("Informe o nome do produto a ser removido: ");
         nome = scanner.nextLine();
         boolean encontrado = false;
@@ -89,7 +87,6 @@ public class Produto {
 
     public static void editarProduto(List<Produto> tabelaProdutos) {
         String nome = null;
-        scanner.nextLine();
         System.out.println("Informe o nome do produto a ser editado: ");
         nome = scanner.nextLine();
         Produto produtoPraEditar = null;
@@ -106,8 +103,7 @@ public class Produto {
             }
             if (!encontrado) {
                 System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
-                nome = scanner.nextLine();
-                if (nome.equalsIgnoreCase("0")) {
+                if (scanner.nextLine().equalsIgnoreCase("0")) {
                     Ecommerce.app.subMenuProdutos();
                 }
             }
@@ -117,7 +113,6 @@ public class Produto {
         // Fica perguntando até uma opção válida
         while (!opcaoValida) {
             if (resposta.equalsIgnoreCase("nome")) {
-                scanner.nextLine();
                 System.out.println("Informe o novo nome do produto:");
                 produtoPraEditar.setNomeDoProduto(scanner.nextLine());
                 opcaoValida = true;

@@ -40,7 +40,6 @@ public class Cliente {
     }
 
     public static void cadastrarCliente(List<Cliente> tabelaClientes) {
-        scanner.nextLine();
         System.out.println("Informe o nome do cliente:");
         Cliente cliente =  new Cliente(scanner.nextLine());
         System.out.println("Cliente cadastrado com sucesso\n");
@@ -62,25 +61,19 @@ public class Cliente {
     }
     
     public static void removerCliente(List<Cliente> tabelaClientes) {
-        scanner.nextLine();
         System.out.println("Informe o nome do cliente a ser removido: ");
         String nome = scanner.nextLine();
         boolean encontrado = false;
         Cliente cliente = null;
-        while (!encontrado) {
-            for (Cliente c : tabelaClientes) {
-                if (c.nome.equalsIgnoreCase(nome)) {
-                    cliente = c;
-                    encontrado = true;
-                }
+        for (Cliente c : tabelaClientes) {
+            if (c.nome.equalsIgnoreCase(nome)) {
+                cliente = c;
+                encontrado = true;
             }
-            if (!encontrado) {
-                System.out.println("Cliente não encontrado! Digite um nome válido (\"0\" para sair):\n");
-                nome = scanner.nextLine();
-                if (nome.equalsIgnoreCase("0")){
-                    Ecommerce.app.subMenuCliente();
-                }
-            }
+        }
+        if (!encontrado) {
+            System.out.println("Cliente não encontrado!\n");
+            Ecommerce.app.subMenuCliente();
         }
         tabelaClientes.remove(cliente);
         System.out.println("Cliente removido com sucesso!\n");
