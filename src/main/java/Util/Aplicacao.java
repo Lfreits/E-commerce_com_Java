@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import static sun.org.mozilla.javascript.internal.Context.exit;
 
 public class Aplicacao {
 
@@ -29,7 +28,7 @@ public class Aplicacao {
                 case 2: subMenuProdutos(); break;
                 case 3: Compra.mostrarHistoricoDeCompras(tabelaCompras); break;
                 case 4: subMenuCarrinho(); break;
-                case 0: exit(); break;
+                case 0: System.exit(0);; break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Por favor, digite um número inteiro.\n");
