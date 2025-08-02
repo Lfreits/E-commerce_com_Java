@@ -39,6 +39,7 @@ public class Compra {
     }
 
     public static void mostrarHistoricoDeCompras(List<Compra> tabelaCompras) {
+        scanner.nextLine();
         System.out.println("Histórico de compras de qual cliente? ");
         String nomeCliente = scanner.nextLine();
         boolean encontrado = false;
@@ -51,6 +52,7 @@ public class Compra {
                 }
             }
             if (!encontrado) {
+                scanner.nextLine();
                 System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
                 nomeCliente = scanner.nextLine();
                 if (nomeCliente.equalsIgnoreCase("0")) {

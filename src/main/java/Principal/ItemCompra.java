@@ -41,12 +41,14 @@ public class ItemCompra {
         String donoCarrinho;
         boolean clienteEncontrado = false;
         boolean produtoEncontrado = false;
+        scanner.nextLine();
         System.out.println("Informe o nome do dono do carrinho: ");
         donoCarrinho = scanner.nextLine();
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
                 // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
+                    scanner.nextLine();
                     System.out.println("Informe o nome do produto:");
                     String nomeProduto = scanner.nextLine();
                     while (!produtoEncontrado) {
@@ -58,16 +60,20 @@ public class ItemCompra {
                             }
                         }
                         if (!produtoEncontrado) {
+                            scanner.nextLine();
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
-                            if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            nomeProduto = scanner.nextLine();
+                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                         }
                     }
                     clienteEncontrado = true;
                 }
             }
             if (!clienteEncontrado) {
+                scanner.nextLine();
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                donoCarrinho = scanner.nextLine();
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Produto adicionado com sucesso!\n");
@@ -76,16 +82,19 @@ public class ItemCompra {
 
     public static void removerItemNoCarrinho(List<ItemCompra> tabelaCarrinho, List<Produto> tabelaProdutos) {
         String donoCarrinho;
+        String nomeProduto;
         boolean clienteEncontrado = false;
         boolean produtoEncontrado = false;
+        scanner.nextLine();
         System.out.println("Informe o nome do dono do carrinho: ");
         donoCarrinho = scanner.nextLine();
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
                 // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
+                    scanner.nextLine();
                     System.out.println("Informe o nome do produto a ser removido:");
-                    String nomeProduto = scanner.nextLine();
+                    nomeProduto = scanner.nextLine();
                     while (!produtoEncontrado) {
                         for (Produto p : tabelaProdutos) {
                             // Entra se o produto digitado existir
@@ -95,21 +104,27 @@ public class ItemCompra {
                                     i.itensDoCarrinho.remove(p);
                                 produtoEncontrado = true;
                                 } else {
+                                    scanner.nextLine();
                                     System.out.println("Produto não encontrado no carrinho! Informe outro produto (\"0\" para sair)");
-                                    if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                                    nomeProduto = scanner.nextLine();
+                                    if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                                 }
                             }
                         } if (!produtoEncontrado) {
+                            scanner.nextLine();
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
-                            if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            donoCarrinho = scanner.nextLine();
+                            if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                         }
                     }
                     clienteEncontrado = true;
                 }
             }
             if (!produtoEncontrado) {
+                scanner.nextLine();
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                nomeProduto = scanner.nextLine();
+                if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Produto removido com sucesso!\n");
@@ -117,6 +132,7 @@ public class ItemCompra {
     }
 
     public static void comprarItensDoCarrinho(List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
+        scanner.nextLine();
         System.out.println("Informe o nome do dono do carrinho: ");
         String donoCarrinho = scanner.nextLine();
         boolean clienteEncontrado = false;
@@ -130,8 +146,10 @@ public class ItemCompra {
                     tabelaCarrinho.clear();
                 }
             } if (!clienteEncontrado) {
+                scanner.nextLine();
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                donoCarrinho = scanner.nextLine();;
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Compra adicionada com sucesso!\n");
