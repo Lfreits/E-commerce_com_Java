@@ -17,6 +17,7 @@ public class Aplicacao {
     List<Compra> tabelaCompras = new ArrayList<Compra>();
     List<ItemCompra> tabelaCarrinho = new ArrayList<ItemCompra>();
 
+
     Scanner scanner = new Scanner(System.in);
     ExibirMenus menu = new ExibirMenus();
 
@@ -42,8 +43,8 @@ public class Aplicacao {
         try {
             switch (scanner.nextInt()) {
                 case 1: Cliente.visualizarClientes(tabelaClientes); break;
-                case 2: Cliente.cadastrarCliente(tabelaClientes, tabelaCarrinho); break;
-                case 3: Cliente.removerCliente(tabelaClientes, tabelaCarrinho); break;
+                case 2: Cliente.cadastrarCliente(tabelaClientes, tabelaCarrinho, tabelaCompras); break;
+                case 3: Cliente.removerCliente(tabelaClientes, tabelaCarrinho, tabelaCompras); break;
                 case 0: menuPrincipal(); break;
             }
         } catch (InputMismatchException e) {
@@ -76,7 +77,7 @@ public class Aplicacao {
             switch (scanner.nextInt()) {
                 case 1: ItemCompra.adicionarItemNoCarrinho(tabelaCarrinho, tabelaProdutos); break;
                 case 2: ItemCompra.removerItemNoCarrinho(tabelaCarrinho, tabelaProdutos); break;
-                case 3: subMenuCarrinho();
+                case 3: ItemCompra.verCarrinho(tabelaCarrinho); break;
                 case 4: ItemCompra.comprarItensDoCarrinho(tabelaCarrinho, tabelaCompras);
                 case 0: menuPrincipal(); break;
             }

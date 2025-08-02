@@ -104,12 +104,12 @@ public class Produto {
                     if (nome.equalsIgnoreCase(p.nomeDoProduto)) {
                         produtoPraEditar = p;
                         encontrado = true;
-                        break;
                     }
                 }
                 if (!encontrado) {
                     System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
-                    if (scanner.nextLine().equalsIgnoreCase("0")) {
+                    nome = scanner.nextLine();
+                    if (nome.equalsIgnoreCase("0")) {
                         Ecommerce.app.subMenuProdutos(); return;
                     }
                 }
@@ -129,17 +129,14 @@ public class Produto {
                         produtoPraEditar.setPreco(scanner.nextInt());
                         scanner.nextLine();
                         opcaoValida = true;
+                        break;
                     } catch (InputMismatchException e){
                         System.out.println("Entrada inválida! Digite novamente");
                         scanner.nextLine();
                     }
-                    break;
-                }
-                if (opcaoValida == false) {
-                    if (resposta.equalsIgnoreCase("0")) {
-                        Ecommerce.app.subMenuProdutos(); return;
-                    }
-                    System.out.println("Opção inválida!");
+                } else {
+                    System.out.println("Opção inválida. Digite novamente");
+                    resposta = scanner.nextLine();
                 }
             }
             Ecommerce.app.subMenuProdutos(); return;
@@ -147,10 +144,15 @@ public class Produto {
 
     public static void visualizarProdutos(List<Produto> tabelaProdutos) {
         System.out.println("Produtos cadastrados no sistema:\n");
-        for (Produto p : tabelaProdutos) {
-            System.out.println(p);
+        if (tabelaProdutos.isEmpty()) {
+            System.out.println("Não existem produtos cadastrados no sistema\n");
+            Ecommerce.app.subMenuProdutos(); return;
+        } else {
+            for (Produto p : tabelaProdutos) {
+                System.out.println(p);
+            }
+            System.out.println("\n");
+            Ecommerce.app.subMenuProdutos(); return;
         }
-        System.out.println("\n");
-        Ecommerce.app.subMenuProdutos(); return;
     }
 }

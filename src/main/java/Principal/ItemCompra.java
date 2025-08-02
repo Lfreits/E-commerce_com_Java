@@ -1,6 +1,5 @@
 package Principal;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -143,14 +142,19 @@ public class ItemCompra {
         System.out.println("Informe o nome do dono do carrinho: ");
         String donoCarrinho = scanner.nextLine();
         boolean clienteEncontrado = false;
+        ItemCompra carrinho = null;
+        Compra compra = null;
         while (!clienteEncontrado){
             for (ItemCompra i : tabelaCarrinho) {
                 // Entra se o nome digitado existir em algum cliente
                 if (donoCarrinho.equalsIgnoreCase(i.cliente.getNome())) {
-                    Compra compra = new Compra(i);
-                    tabelaCompras.add(compra);
                     clienteEncontrado = true;
-                    tabelaCarrinho.remove(i);
+                    for (Compra c : tabelaCompras) {
+                        if (donoCarrinho.equalsIgnoreCase(c.getCliente().getNome())) {
+                            compra = c;
+                        }
+                    }
+                    carrinho = i;
                     break;
                 }
             } if (!clienteEncontrado) {
@@ -159,7 +163,37 @@ public class ItemCompra {
                 if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
             }
         }
+        compra.setItensComprados(carrinho);
+        tabelaCompras.add(compra);
         System.out.println("Compra adicionada com sucesso!\n");
+        Ecommerce.app.subMenuCarrinho(); return;
+    }
+
+    public static void verCarrinho(List<ItemCompra> tabelaCarrinho) {
+        String donoCarrinho;
+        System.out.println("Informe o dono do carrinho: ");
+        donoCarrinho = scanner.nextLine();
+        boolean clienteEncontrado = false;
+        while (!clienteEncontrado) {
+            for (ItemCompra c : tabelaCarrinho) {
+                if (donoCarrinho.equalsIgnoreCase(c.cliente.getNome())) {
+                    if (c.getItensDoCarrinho().isEmpty()) {
+                        System.out.println("Carrinho vazio\n");
+                        Ecommerce.app.subMenuCarrinho(); return;
+                    }
+                    System.out.println(c.getItensDoCarrinho());
+                    clienteEncontrado = true;
+                    Ecommerce.app.subMenuCarrinho(); return;
+                } else {
+                    System.out.println("Cliente não encontrado! Digite o nome novamente (\"0\" para sair): ");
+                    donoCarrinho = scanner.nextLine();
+                    if (donoCarrinho.equalsIgnoreCase("0")) {
+                        Ecommerce.app.subMenuCarrinho();
+                        return;
+                    }
+                }
+            }
+        }
         Ecommerce.app.subMenuCarrinho(); return;
     }
 }

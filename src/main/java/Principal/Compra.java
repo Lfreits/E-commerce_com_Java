@@ -1,25 +1,27 @@
 package Principal;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import static Principal.Ecommerce.scanner;
 
 // Compra finalizada
 public class Compra {
-    private ItemCompra itensComprados;
+    private List<Produto> itensComprados = new LinkedList<Produto>();
     private Cliente cliente;
 
     // Registra compra finalizada
-    public Compra(ItemCompra itensComprados) {
-        setItensComprados(itensComprados);
-        setCliente(itensComprados.getCliente());
+    public Compra(ItemCompra itens) {
+        setItensComprados(itens);
+        setCliente(itens.getCliente());
     }
 
-    public ItemCompra getItensComprados() {
+    public List<Produto> getItensComprados() {
         return itensComprados;
     }
 
     public void setItensComprados(ItemCompra itensComprados) {
-        this.itensComprados = itensComprados;
+        this.itensComprados = itensComprados.getItensDoCarrinho();
     }
 
     public Cliente getCliente() {
@@ -45,8 +47,17 @@ public class Compra {
         // Fica perguntando até encontrar o cliente
         while (!encontrado) {
             for (Compra c : tabelaCompras) {
-                if (c.cliente.getNome().equalsIgnoreCase(nomeCliente)) {
-                    System.out.println(c.itensComprados);
+                if (c.getCliente().getNome().equalsIgnoreCase(nomeCliente)) {
+
+                    // Teste temporário
+                    System.out.println(c);
+
+                    if (c.itensComprados.isEmpty()) {
+                        System.out.println("Sem itens comprados por esse cliente");
+                        encontrado = true;
+                        break;
+                    }
+                    System.out.println(c.getItensComprados());
                     encontrado = true;
                     break;
                 }
@@ -55,6 +66,7 @@ public class Compra {
                 System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
                 nomeCliente = scanner.nextLine();
                 if (nomeCliente.equalsIgnoreCase("0")) {
+                    System.out.println("\n");
                     Ecommerce.app.menuPrincipal(); return;
                 }
             }

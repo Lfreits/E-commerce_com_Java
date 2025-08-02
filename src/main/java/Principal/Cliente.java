@@ -15,6 +15,11 @@ public class Cliente {
         setNome(nome);
     }
 
+    public Cliente(String nome, ItemCompra carrinhoAssociado) {
+        this.nome = nome;
+        this.carrinhoAssociado = carrinhoAssociado;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -39,12 +44,14 @@ public class Cliente {
                 '}';
     }
 
-    public static void cadastrarCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho) {
+    public static void cadastrarCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
         System.out.println("Informe o nome do cliente:");
         Cliente cliente =  new Cliente(scanner.nextLine());
+        Compra historicoCompra = new Compra(new ItemCompra(cliente));
         System.out.println("Cliente cadastrado com sucesso\n");
         tabelaClientes.add(cliente);
         tabelaCarrinho.add(cliente.carrinhoAssociado);
+        tabelaCompras.add(historicoCompra);
         Ecommerce.app.subMenuCliente(); return;
     }
 
@@ -61,12 +68,13 @@ public class Cliente {
         }
     }
     
-    public static void removerCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho) {
+    public static void removerCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
         System.out.println("Informe o nome do cliente a ser removido: ");
         String nome = scanner.nextLine();
         boolean encontrado = false;
         Cliente cliente = null;
         ItemCompra carrinho = null;
+        Compra compra = null;
         while (!encontrado) {
             for (Cliente c : tabelaClientes) {
                 if (c.getNome().equalsIgnoreCase(nome)) {
@@ -75,6 +83,11 @@ public class Cliente {
                     for (ItemCompra i : tabelaCarrinho) {
                         if (i.getCliente().equals(c)) {
                             carrinho = i;
+                        }
+                    }
+                    for (Compra co : tabelaCompras) {
+                        if (co.getCliente().equals(c)) {
+                            compra = co;
                         }
                     }
                     break;
@@ -86,13 +99,13 @@ public class Cliente {
                 if (nome.equalsIgnoreCase("0")) {
                     Ecommerce.app.subMenuCliente(); return;
                 }
-                nome = scanner.nextLine();
             } else {
                 break;
             }
         }
         tabelaClientes.remove(cliente);
         tabelaCarrinho.remove(carrinho);
+        tabelaCompras.remove(compra);
         System.out.println("Cliente removido com sucesso!\n");
         Ecommerce.app.subMenuCliente(); return;
     }
