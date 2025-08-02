@@ -22,7 +22,6 @@ Apesar de ser um exercício de curta duração, estou mantendo a estrutura do pr
 
 - 🔗 Integrar banco de dados ao projeto  
 - ➕ Adicionar controle de quantidade de itens no carrinho  *(atualmente acrescenta produtos duplicados sem dizer a quantidade)*
-- 🧹 Remover itens do carrinho após finalização da compra  
 
 ---
 

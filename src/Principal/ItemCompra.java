@@ -123,6 +123,7 @@ public class ItemCompra {
                     Compra compra = new Compra(i);
                     tabelaCompras.add(compra);
                     clienteEncontrado = true;
+                    tabelaCarrinho.clear();
                 } else {
                     System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
                     if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
