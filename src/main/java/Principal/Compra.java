@@ -48,6 +48,7 @@ public class Compra {
                 if (c.cliente.getNome().equalsIgnoreCase(nomeCliente)) {
                     System.out.println(c.itensComprados);
                     encontrado = true;
+                    break;
                 }
             }
             if (!encontrado) {

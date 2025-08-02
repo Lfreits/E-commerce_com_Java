@@ -74,6 +74,7 @@ public class Produto {
                     tabelaProdutos.remove(p);
                     System.out.println("Produto removido com sucesso!");
                     encontrado = true;
+                    break;
                 }
             }
             if (!encontrado) {
@@ -100,6 +101,7 @@ public class Produto {
                 if (nome.equalsIgnoreCase(p.nomeDoProduto)) {
                     produtoPraEditar = p;
                     encontrado = true;
+                    break;
                 }
             }
             if (!encontrado) {
@@ -117,11 +119,13 @@ public class Produto {
                 System.out.println("Informe o novo nome do produto:");
                 produtoPraEditar.setNomeDoProduto(scanner.nextLine());
                 opcaoValida = true;
+                break;
             } else if (resposta.equalsIgnoreCase("preço")) {
                 System.out.println("Informe o novo preço do produto:");
                 produtoPraEditar.setPreco(scanner.nextInt());
                 scanner.nextLine();
                 opcaoValida = true;
+                break;
             }
             if (opcaoValida == false) {
                 if (resposta.equalsIgnoreCase("0")) {

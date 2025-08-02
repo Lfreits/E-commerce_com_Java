@@ -55,6 +55,7 @@ public class ItemCompra {
                             if (p.getNomeDoProduto().equalsIgnoreCase(nomeProduto)) {
                                 i.itensDoCarrinho.add(p);
                                 produtoEncontrado = true;
+                                break;
                             }
                         }
                         if (!produtoEncontrado) {
@@ -64,6 +65,7 @@ public class ItemCompra {
                         }
                     }
                     clienteEncontrado = true;
+                    break;
                 }
             }
             if (!clienteEncontrado) {
@@ -95,7 +97,8 @@ public class ItemCompra {
                                 // Entra se o produto digitado estiver no carrinho
                                 if (i.getItensDoCarrinho().contains(p)){
                                     i.itensDoCarrinho.remove(p);
-                                produtoEncontrado = true;
+                                    produtoEncontrado = true;
+                                    break;
                                 } else {
                                     System.out.println("Produto não encontrado no carrinho! Informe outro produto (\"0\" para sair)");
                                     nomeProduto = scanner.nextLine();
@@ -109,6 +112,7 @@ public class ItemCompra {
                         }
                     }
                     clienteEncontrado = true;
+                    break;
                 }
             }
             if (!produtoEncontrado) {
@@ -133,6 +137,7 @@ public class ItemCompra {
                     tabelaCompras.add(compra);
                     clienteEncontrado = true;
                     tabelaCarrinho.clear();
+                    break;
                 }
             } if (!clienteEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");

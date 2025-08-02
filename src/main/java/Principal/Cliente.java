@@ -69,6 +69,7 @@ public class Cliente {
             if (c.nome.equalsIgnoreCase(nome)) {
                 cliente = c;
                 encontrado = true;
+                break;
             }
         }
         if (!encontrado) {
