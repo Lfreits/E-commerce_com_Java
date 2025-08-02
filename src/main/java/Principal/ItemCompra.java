@@ -69,7 +69,7 @@ public class ItemCompra {
                         if (!produtoEncontrado) {
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
                             nomeProduto = scanner.nextLine();
-                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
                         }
                     }
                     clienteEncontrado = true;
@@ -79,11 +79,11 @@ public class ItemCompra {
             if (!clienteEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
                 donoCarrinho = scanner.nextLine();
-                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
             }
         }
         System.out.println("Produto adicionado com sucesso!\n");
-        Ecommerce.app.subMenuCarrinho();
+        Ecommerce.app.subMenuCarrinho(); return;
     }
 
     public static void removerItemNoCarrinho(List<ItemCompra> tabelaCarrinho, List<Produto> tabelaProdutos) {
@@ -110,13 +110,16 @@ public class ItemCompra {
                                 } else {
                                     System.out.println("Produto não encontrado no carrinho! Informe outro produto (\"0\" para sair)");
                                     nomeProduto = scanner.nextLine();
-                                    if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                                    if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
                                 }
                             }
                         } if (!produtoEncontrado) {
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
                             nomeProduto = scanner.nextLine();
-                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
+                        }
+                        if (produtoEncontrado) {
+                            break;
                         }
                     }
                     clienteEncontrado = true;
@@ -126,11 +129,14 @@ public class ItemCompra {
             if (!produtoEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
                 donoCarrinho = scanner.nextLine();
-                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
+            }
+            if (clienteEncontrado) {
+                break;
             }
         }
         System.out.println("Produto removido com sucesso!\n");
-        Ecommerce.app.subMenuCarrinho();
+        Ecommerce.app.subMenuCarrinho(); return;
     }
 
     public static void comprarItensDoCarrinho(List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
@@ -150,10 +156,10 @@ public class ItemCompra {
             } if (!clienteEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
                 donoCarrinho = scanner.nextLine();
-                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
             }
         }
         System.out.println("Compra adicionada com sucesso!\n");
-        Ecommerce.app.subMenuCarrinho();
+        Ecommerce.app.subMenuCarrinho(); return;
     }
 }

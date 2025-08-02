@@ -11,7 +11,7 @@ public class Compra {
     // Registra compra finalizada
     public Compra(ItemCompra itensComprados) {
         setItensComprados(itensComprados);
-        setCliente(cliente);
+        setCliente(itensComprados.getCliente());
     }
 
     public ItemCompra getItensComprados() {
@@ -55,11 +55,11 @@ public class Compra {
                 System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
                 nomeCliente = scanner.nextLine();
                 if (nomeCliente.equalsIgnoreCase("0")) {
-                    Ecommerce.app.menuPrincipal();
+                    Ecommerce.app.menuPrincipal(); return;
                 }
             }
         }
         System.out.println("\n");
-        Ecommerce.app.menuPrincipal();
+        Ecommerce.app.menuPrincipal(); return;
     }
 }

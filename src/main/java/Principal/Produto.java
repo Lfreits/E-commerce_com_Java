@@ -60,7 +60,7 @@ public class Produto {
         Produto p = new Produto(preco, nome);
         tabelaProdutos.add(p);
         System.out.println("Produto adicionado com sucesso!");
-        Ecommerce.app.subMenuProdutos();
+        Ecommerce.app.subMenuProdutos(); return;
     }
     public static void removerProduto(List<Produto> tabelaProdutos) {
         String nome = null;
@@ -74,68 +74,76 @@ public class Produto {
                     tabelaProdutos.remove(p);
                     System.out.println("Produto removido com sucesso!");
                     encontrado = true;
-                    break;
+                    Ecommerce.app.subMenuProdutos(); return;
                 }
             }
             if (!encontrado) {
                 System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair): ");
+                nome = scanner.nextLine();
                 if (nome.equalsIgnoreCase("0")) {
-                    Ecommerce.app.subMenuProdutos();
+                    Ecommerce.app.subMenuProdutos(); return;
                 }
+            } else {
+                break;
             }
         }
-        Ecommerce.app.subMenuProdutos();
+        Ecommerce.app.subMenuProdutos(); return;
     }
 
-    public static void editarProduto(List<Produto> tabelaProdutos) {
-        String nome = null;
-        System.out.println("Informe o nome do produto a ser editado: ");
-        nome = scanner.nextLine();
-        Produto produtoPraEditar = null;
-        boolean encontrado = false;
-        boolean opcaoValida = false;
-        // Fica perguntando até o nome existir
-        while (!encontrado){
-            for (Produto p : tabelaProdutos) {
-                //Entra se o produto existir
-                if (nome.equalsIgnoreCase(p.nomeDoProduto)) {
-                    produtoPraEditar = p;
-                    encontrado = true;
+        public static void editarProduto(List<Produto> tabelaProdutos) {
+            String nome = null;
+            System.out.println("Informe o nome do produto a ser editado: ");
+            nome = scanner.nextLine();
+            Produto produtoPraEditar = null;
+            boolean encontrado = false;
+            boolean opcaoValida = false;
+            // Fica perguntando até o nome existir
+            while (!encontrado){
+                for (Produto p : tabelaProdutos) {
+                    //Entra se o produto existir
+                    if (nome.equalsIgnoreCase(p.nomeDoProduto)) {
+                        produtoPraEditar = p;
+                        encontrado = true;
+                        break;
+                    }
+                }
+                if (!encontrado) {
+                    System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
+                    if (scanner.nextLine().equalsIgnoreCase("0")) {
+                        Ecommerce.app.subMenuProdutos(); return;
+                    }
+                }
+            }
+            System.out.println("Produto encontrado! O que deseja editar? (\"Nome\" ou \"preço\") (\"0\" para sair)");
+            String resposta = scanner.nextLine();
+            // Fica perguntando até uma opção válida
+            while (!opcaoValida) {
+                if (resposta.equalsIgnoreCase("nome")) {
+                    System.out.println("Informe o novo nome do produto:");
+                    produtoPraEditar.setNomeDoProduto(scanner.nextLine());
+                    opcaoValida = true;
+                    break;
+                } else if (resposta.equalsIgnoreCase("preço")) {
+                    System.out.println("Informe o novo preço do produto:");
+                    try {
+                        produtoPraEditar.setPreco(scanner.nextInt());
+                        scanner.nextLine();
+                        opcaoValida = true;
+                    } catch (InputMismatchException e){
+                        System.out.println("Entrada inválida! Digite novamente");
+                        scanner.nextLine();
+                    }
                     break;
                 }
-            }
-            if (!encontrado) {
-                System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {
-                    Ecommerce.app.subMenuProdutos();
+                if (opcaoValida == false) {
+                    if (resposta.equalsIgnoreCase("0")) {
+                        Ecommerce.app.subMenuProdutos(); return;
+                    }
+                    System.out.println("Opção inválida!");
                 }
             }
+            Ecommerce.app.subMenuProdutos(); return;
         }
-        System.out.println("Produto encontrado! O que deseja editar? (\"Nome\" ou \"preço\") (\"0\" para sair)");
-        String resposta = scanner.nextLine();
-        // Fica perguntando até uma opção válida
-        while (!opcaoValida) {
-            if (resposta.equalsIgnoreCase("nome")) {
-                System.out.println("Informe o novo nome do produto:");
-                produtoPraEditar.setNomeDoProduto(scanner.nextLine());
-                opcaoValida = true;
-                break;
-            } else if (resposta.equalsIgnoreCase("preço")) {
-                System.out.println("Informe o novo preço do produto:");
-                produtoPraEditar.setPreco(scanner.nextInt());
-                scanner.nextLine();
-                opcaoValida = true;
-                break;
-            }
-            if (opcaoValida == false) {
-                if (resposta.equalsIgnoreCase("0")) {
-                    Ecommerce.app.subMenuProdutos();
-                }
-                System.out.println("Opção inválida!");
-            }
-        }
-        Ecommerce.app.subMenuProdutos();
-    }
 
     public static void visualizarProdutos(List<Produto> tabelaProdutos) {
         System.out.println("Produtos cadastrados no sistema:\n");
@@ -143,6 +151,6 @@ public class Produto {
             System.out.println(p);
         }
         System.out.println("\n");
-        Ecommerce.app.subMenuProdutos();
+        Ecommerce.app.subMenuProdutos(); return;
     }
 }
