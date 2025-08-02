@@ -73,12 +73,12 @@ public class Produto {
                     tabelaProdutos.remove(p);
                     System.out.println("Produto removido com sucesso!");
                     encontrado = true;
-                } else {
-                    System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair): ");
-                    if (nome.equalsIgnoreCase("0")) {
-                        Ecommerce.app.subMenuProdutos();
-                    }
-                    encontrado = false;
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair): ");
+                if (nome.equalsIgnoreCase("0")) {
+                    Ecommerce.app.subMenuProdutos();
                 }
             }
         }
@@ -99,11 +99,12 @@ public class Produto {
                 if (nome.equalsIgnoreCase(p.nomeDoProduto)) {
                     produtoPraEditar = p;
                     encontrado = true;
-                } else {
-                    System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
-                    if (scanner.nextLine().equalsIgnoreCase("0")) {
-                        Ecommerce.app.subMenuProdutos();
-                    }
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair):");
+                if (scanner.nextLine().equalsIgnoreCase("0")) {
+                    Ecommerce.app.subMenuProdutos();
                 }
             }
         }

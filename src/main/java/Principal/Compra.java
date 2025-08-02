@@ -48,12 +48,13 @@ public class Compra {
                 if (c.cliente.getNome().equalsIgnoreCase(nomeCliente)) {
                     System.out.println(c.itensComprados);
                     encontrado = true;
-                } else {
-                    System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
-                    nomeCliente = scanner.nextLine();
-                    if (nomeCliente.equalsIgnoreCase("0")) {
-                        Ecommerce.app.menuPrincipal();
-                    }
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Cliente não encontrado, digite o nome novamente (\"0\" para sair):");
+                nomeCliente = scanner.nextLine();
+                if (nomeCliente.equalsIgnoreCase("0")) {
+                    Ecommerce.app.menuPrincipal();
                 }
             }
         }

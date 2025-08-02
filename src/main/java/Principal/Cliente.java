@@ -63,14 +63,17 @@ public class Cliente {
     public static void removerCliente(List<Cliente> tabelaClientes) {
         System.out.println("Informe o nome do cliente a ser removido: ");
         String nome = scanner.nextLine();
+        boolean encontrado = false;
         Cliente cliente = null;
         for (Cliente c : tabelaClientes) {
             if (c.nome.equalsIgnoreCase(nome)) {
                 cliente = c;
-            } else {
-                System.out.println("Cliente não encontrado!\n");
-                Ecommerce.app.subMenuCliente();
+                encontrado = true;
             }
+        }
+        if (!encontrado) {
+            System.out.println("Cliente não encontrado!\n");
+            Ecommerce.app.subMenuCliente();
         }
         tabelaClientes.remove(cliente);
         System.out.println("Cliente removido com sucesso!\n");
