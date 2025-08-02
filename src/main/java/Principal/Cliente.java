@@ -39,11 +39,18 @@ public class Cliente {
                 '}';
     }
 
-    public static void cadastrarCliente(List<Cliente> tabelaClientes) {
+    public static void cadastrarCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho) {
         System.out.println("Informe o nome do cliente:");
         Cliente cliente =  new Cliente(scanner.nextLine());
+        ItemCompra carrinho = null;
+        for (ItemCompra i : tabelaCarrinho) {
+            if (i.getCliente() == cliente){
+                carrinho = i;
+            }
+        }
         System.out.println("Cliente cadastrado com sucesso\n");
         tabelaClientes.add(cliente);
+        tabelaCarrinho.add(carrinho);
         Ecommerce.app.subMenuCliente();
     }
 
@@ -60,15 +67,21 @@ public class Cliente {
         }
     }
     
-    public static void removerCliente(List<Cliente> tabelaClientes) {
+    public static void removerCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho) {
         System.out.println("Informe o nome do cliente a ser removido: ");
         String nome = scanner.nextLine();
         boolean encontrado = false;
         Cliente cliente = null;
+        ItemCompra carrinho = null;
         for (Cliente c : tabelaClientes) {
             if (c.nome.equalsIgnoreCase(nome)) {
                 cliente = c;
                 encontrado = true;
+                for (ItemCompra i : tabelaCarrinho) {
+                    if (i.getCliente() == c){
+                        carrinho = i;
+                    }
+                }
                 break;
             }
         }
@@ -77,6 +90,7 @@ public class Cliente {
             Ecommerce.app.subMenuCliente();
         }
         tabelaClientes.remove(cliente);
+        tabelaCarrinho.remove(carrinho);
         System.out.println("Cliente removido com sucesso!\n");
         Ecommerce.app.subMenuCliente();
     }

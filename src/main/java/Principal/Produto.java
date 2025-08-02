@@ -142,5 +142,7 @@ public class Produto {
         for (Produto p : tabelaProdutos) {
             System.out.println(p);
         }
+        System.out.println("\n");
+        Ecommerce.app.subMenuProdutos();
     }
 }

@@ -21,6 +21,14 @@ public class ItemCompra {
         this.cliente = cliente;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
     public List<Produto> getItensDoCarrinho() {
         return itensDoCarrinho;
     }
@@ -136,7 +144,7 @@ public class ItemCompra {
                     Compra compra = new Compra(i);
                     tabelaCompras.add(compra);
                     clienteEncontrado = true;
-                    tabelaCarrinho.clear();
+                    tabelaCarrinho.remove(i);
                     break;
                 }
             } if (!clienteEncontrado) {

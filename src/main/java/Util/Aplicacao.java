@@ -42,8 +42,8 @@ public class Aplicacao {
         try {
             switch (scanner.nextInt()) {
                 case 1: Cliente.visualizarClientes(tabelaClientes); break;
-                case 2: Cliente.cadastrarCliente(tabelaClientes); break;
-                case 3: Cliente.removerCliente(tabelaClientes); break;
+                case 2: Cliente.cadastrarCliente(tabelaClientes, tabelaCarrinho); break;
+                case 3: Cliente.removerCliente(tabelaClientes, tabelaCarrinho); break;
                 case 0: menuPrincipal(); break;
             }
         } catch (InputMismatchException e) {

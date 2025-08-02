@@ -59,6 +59,7 @@ public class Compra {
                 }
             }
         }
+        System.out.println("\n");
         Ecommerce.app.menuPrincipal();
     }
 }
