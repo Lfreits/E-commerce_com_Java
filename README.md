@@ -35,30 +35,32 @@ Apesar de ser um exercício de curta duração, estou mantendo a estrutura do pr
   - `Compra`
   - `ItemCompra`
 
----
-
 ## 🚀 Como executar
 
-Apesar do projeto ter sido feito utilizando Java 6 (versão usada na minha empresa atual), ele pode ser executado em versões superiores do Java.
+O projeto foi desenvolvido em **Java 6** (versão do Java utilizado na minha empresa). Para rodar, é necessário utilizar o **JDK 11** ou **JDK 8**, garantindo compatibilidade com o compilador e com o ambiente de desenvolvimento original. IDEs e JDKs modernos geralmente não oferecem suporte direto para compilar Java 6, portanto, é essencial configurar o JDK corretamente.
 
-O arquivo `pom.xml` já está configurado para compilar o projeto com compatibilidade Java 6 (`maven.compiler.source` e `maven.compiler.target`), o que permite que ele rode mesmo em IDEs modernas que não suportam diretamente o Java 6 como runtime.
+O arquivo `pom.xml` já está configurado para compilar o projeto com compatibilidade Java 6 (`maven.compiler.source` e `maven.compiler.target`), o que permite que ele compile na versão do Java utilizada pela empresa, desde que o ambiente esteja preparado para isso.
 
 ### Passos:
 
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
 
-2. Importe o projeto em uma IDE como IntelliJ IDEA ou Eclipse
-(certifique-se de que o Maven esteja configurado corretamente)
+2. Importe o projeto em uma IDE como IntelliJ IDEA ou Eclipse  
 
-3. Compile o projeto com Maven (a IDE pode fazer isso automaticamente)
+3. Certifique-se de que o JDK do projeto seja 11 ou 8
+   
+5. Execute a classe principal:
+   ```
+   src/Principal/Ecommerce.java
+   ```
 
-4. Execute a classe principal (src/Principal/Ecommerce.java)
-
-5. Use o menu exibido no console para interagir com a aplicação
+6. Use o menu exibido no console para interagir com a aplicação
 
 ---
+
 
 ## 🧾 Proposta inicial (fornecida pelo curso)
 
