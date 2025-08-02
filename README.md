@@ -35,6 +35,8 @@ Apesar de ser um exercício de curta duração, estou mantendo a estrutura do pr
   - `Compra`
   - `ItemCompra`
 
+---
+
 ## 🚀 Como executar
 
 O projeto foi desenvolvido em **Java 6** (versão do Java utilizado na minha empresa). Para rodar, é necessário utilizar o **JDK 11** ou **JDK 8**, garantindo compatibilidade com o compilador e com o ambiente de desenvolvimento original. IDEs e JDKs modernos geralmente não oferecem suporte direto para compilar Java 6, portanto, é essencial configurar o JDK corretamente.
