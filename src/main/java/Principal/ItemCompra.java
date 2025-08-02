@@ -59,7 +59,8 @@ public class ItemCompra {
                         }
                         if (!produtoEncontrado) {
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
-                            if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            nomeProduto = scanner.nextLine();
+                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                         }
                     }
                     clienteEncontrado = true;
@@ -67,7 +68,8 @@ public class ItemCompra {
             }
             if (!clienteEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                donoCarrinho = scanner.nextLine();
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Produto adicionado com sucesso!\n");
@@ -96,12 +98,14 @@ public class ItemCompra {
                                 produtoEncontrado = true;
                                 } else {
                                     System.out.println("Produto não encontrado no carrinho! Informe outro produto (\"0\" para sair)");
-                                    if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                                    nomeProduto = scanner.nextLine();
+                                    if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                                 }
                             }
                         } if (!produtoEncontrado) {
                             System.out.println("Produto não encontrado! Informe o nome do produto novamente (\"0\" para sair)");
-                            if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                            nomeProduto = scanner.nextLine();
+                            if (nomeProduto.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
                         }
                     }
                     clienteEncontrado = true;
@@ -109,7 +113,8 @@ public class ItemCompra {
             }
             if (!produtoEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                donoCarrinho = scanner.nextLine();
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Produto removido com sucesso!\n");
@@ -131,7 +136,8 @@ public class ItemCompra {
                 }
             } if (!clienteEncontrado) {
                 System.out.println("Cliente não encontrado! Informe o nome novamente (\"0\" para sair)");
-                if (scanner.nextLine().equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
+                donoCarrinho = scanner.nextLine();
+                if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho();}
             }
         }
         System.out.println("Compra adicionada com sucesso!\n");

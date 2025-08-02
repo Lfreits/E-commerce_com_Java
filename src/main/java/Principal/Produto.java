@@ -50,6 +50,7 @@ public class Produto {
         while (!entradaValida) {
             try {
                 preco = scanner.nextInt();
+                scanner.nextLine();
                 entradaValida = true;
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Por favor, digite um número inteiro para o preço.");
@@ -119,6 +120,7 @@ public class Produto {
             } else if (resposta.equalsIgnoreCase("preço")) {
                 System.out.println("Informe o novo preço do produto:");
                 produtoPraEditar.setPreco(scanner.nextInt());
+                scanner.nextLine();
                 opcaoValida = true;
             }
             if (opcaoValida == false) {
