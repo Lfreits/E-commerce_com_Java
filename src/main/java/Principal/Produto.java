@@ -139,6 +139,7 @@ public class Produto {
                     resposta = scanner.nextLine();
                 }
             }
+            System.out.println("Produto editado com sucesso!");
             Ecommerce.app.subMenuProdutos(); return;
         }
 

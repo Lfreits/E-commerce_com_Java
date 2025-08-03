@@ -165,8 +165,8 @@ public class ItemCompra {
         }
         compra.setItensComprados(carrinho.getItensDoCarrinho());
         compra.getCliente().setCarrinhoAssociado(new ItemCompra(new Cliente(compra.getCliente().getNome())));
+        carrinho.getItensDoCarrinho().clear();
         tabelaCompras.add(compra);
-        tabelaCarrinho.remove(carrinho);
         System.out.println("Compra adicionada com sucesso!\n");
         Ecommerce.app.subMenuCarrinho(); return;
     }
