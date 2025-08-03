@@ -47,7 +47,8 @@ public class Cliente {
     public static void cadastrarCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
         System.out.println("Informe o nome do cliente:");
         Cliente cliente =  new Cliente(scanner.nextLine());
-        Compra historicoCompra = new Compra(new ItemCompra(cliente));
+        ItemCompra carrinho = new ItemCompra(cliente);
+        Compra historicoCompra = new Compra(carrinho.getItensDoCarrinho(), cliente);
         System.out.println("Cliente cadastrado com sucesso\n");
         tabelaClientes.add(cliente);
         tabelaCarrinho.add(cliente.carrinhoAssociado);

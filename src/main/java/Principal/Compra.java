@@ -11,17 +11,17 @@ public class Compra {
     private Cliente cliente;
 
     // Registra compra finalizada
-    public Compra(ItemCompra itens) {
-        setItensComprados(itens);
-        setCliente(itens.getCliente());
+    public Compra(List<Produto> carrinho, Cliente cliente) {
+        setItensComprados(carrinho);
+        setCliente(cliente);
     }
 
     public List<Produto> getItensComprados() {
         return itensComprados;
     }
 
-    public void setItensComprados(ItemCompra itensComprados) {
-        this.itensComprados = itensComprados.getItensDoCarrinho();
+    public void setItensComprados(List<Produto> itensComprados) {
+        this.itensComprados = itensComprados;
     }
 
     public Cliente getCliente() {
@@ -48,10 +48,6 @@ public class Compra {
         while (!encontrado) {
             for (Compra c : tabelaCompras) {
                 if (c.getCliente().getNome().equalsIgnoreCase(nomeCliente)) {
-
-                    // Teste temporário
-                    System.out.println(c);
-
                     if (c.itensComprados.isEmpty()) {
                         System.out.println("Sem itens comprados por esse cliente");
                         encontrado = true;

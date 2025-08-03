@@ -163,8 +163,10 @@ public class ItemCompra {
                 if (donoCarrinho.equalsIgnoreCase("0")) {Ecommerce.app.subMenuCarrinho(); return;}
             }
         }
-        compra.setItensComprados(carrinho);
+        compra.setItensComprados(carrinho.getItensDoCarrinho());
+        compra.getCliente().setCarrinhoAssociado(new ItemCompra(new Cliente(compra.getCliente().getNome())));
         tabelaCompras.add(compra);
+        tabelaCarrinho.remove(carrinho);
         System.out.println("Compra adicionada com sucesso!\n");
         Ecommerce.app.subMenuCarrinho(); return;
     }
