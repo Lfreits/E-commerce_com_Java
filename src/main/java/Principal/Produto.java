@@ -62,6 +62,7 @@ public class Produto {
         System.out.println("Produto adicionado com sucesso!");
         Ecommerce.app.subMenuProdutos(); return;
     }
+
     public static void removerProduto(List<Produto> tabelaProdutos) {
         String nome = null;
         System.out.println("Informe o nome do produto a ser removido: ");
@@ -90,7 +91,7 @@ public class Produto {
         Ecommerce.app.subMenuProdutos(); return;
     }
 
-        public static void editarProduto(List<Produto> tabelaProdutos) {
+    public static void editarProduto(List<Produto> tabelaProdutos) {
             String nome = null;
             System.out.println("Informe o nome do produto a ser editado: ");
             nome = scanner.nextLine();
