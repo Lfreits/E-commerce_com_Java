@@ -1,6 +1,7 @@
 package Principal;
 
 import java.util.List;
+
 import static Principal.Ecommerce.scanner;
 
 // Cliente e carrinho associado
@@ -46,29 +47,29 @@ public class Cliente {
 
     public static void cadastrarCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
         System.out.println("Informe o nome do cliente:");
-        Cliente cliente =  new Cliente(scanner.nextLine());
+        Cliente cliente = new Cliente(scanner.nextLine());
         ItemCompra carrinho = new ItemCompra(cliente);
         Compra historicoCompra = new Compra(carrinho.getItensDoCarrinho(), cliente);
         System.out.println("Cliente cadastrado com sucesso\n");
         tabelaClientes.add(cliente);
         tabelaCarrinho.add(cliente.carrinhoAssociado);
         tabelaCompras.add(historicoCompra);
-        Ecommerce.app.subMenuCliente(); return;
+        Ecommerce.app.subMenuCliente();
     }
 
     public static void visualizarClientes(List<Cliente> tabelaClientes) {
         if (tabelaClientes.isEmpty()) {
             System.out.println("Não existem clientes cadastrados!\n");
-            Ecommerce.app.subMenuCliente(); return;
+            Ecommerce.app.subMenuCliente();
         } else {
             for (Cliente c : tabelaClientes) {
                 System.out.println(c);
             }
             System.out.println("\n");
-            Ecommerce.app.subMenuCliente(); return;
+            Ecommerce.app.subMenuCliente();
         }
     }
-    
+
     public static void removerCliente(List<Cliente> tabelaClientes, List<ItemCompra> tabelaCarrinho, List<Compra> tabelaCompras) {
         System.out.println("Informe o nome do cliente a ser removido: ");
         String nome = scanner.nextLine();
@@ -98,7 +99,8 @@ public class Cliente {
                 System.out.println("Cliente não encontrado! Digite o nome novamente (\"0\" pra sair)\n");
                 nome = scanner.nextLine();
                 if (nome.equalsIgnoreCase("0")) {
-                    Ecommerce.app.subMenuCliente(); return;
+                    Ecommerce.app.subMenuCliente();
+                    return;
                 }
             } else {
                 break;
@@ -108,6 +110,6 @@ public class Cliente {
         tabelaCarrinho.remove(carrinho);
         tabelaCompras.remove(compra);
         System.out.println("Cliente removido com sucesso!\n");
-        Ecommerce.app.subMenuCliente(); return;
+        Ecommerce.app.subMenuCliente();
     }
 }

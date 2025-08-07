@@ -25,11 +25,21 @@ public class Aplicacao {
         menu.menuPrincipal();
         try {
             switch (scanner.nextInt()) {
-                case 1: subMenuCliente(); break;
-                case 2: subMenuProdutos(); break;
-                case 3: Compra.mostrarHistoricoDeCompras(tabelaCompras); break;
-                case 4: subMenuCarrinho(); break;
-                case 0: System.exit(0);; break;
+                case 1:
+                    subMenuCliente();
+                    break;
+                case 2:
+                    subMenuProdutos();
+                    break;
+                case 3:
+                    Compra.mostrarHistoricoDeCompras(tabelaCompras);
+                    break;
+                case 4:
+                    subMenuCarrinho();
+                    break;
+                case 0:
+                    System.exit(0);
+                    break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Por favor, digite um número inteiro.\n");
@@ -42,10 +52,18 @@ public class Aplicacao {
         menu.subMenuCliente();
         try {
             switch (scanner.nextInt()) {
-                case 1: Cliente.visualizarClientes(tabelaClientes); break;
-                case 2: Cliente.cadastrarCliente(tabelaClientes, tabelaCarrinho, tabelaCompras); break;
-                case 3: Cliente.removerCliente(tabelaClientes, tabelaCarrinho, tabelaCompras); break;
-                case 0: menuPrincipal(); break;
+                case 1:
+                    Cliente.visualizarClientes(tabelaClientes);
+                    break;
+                case 2:
+                    Cliente.cadastrarCliente(tabelaClientes, tabelaCarrinho, tabelaCompras);
+                    break;
+                case 3:
+                    Cliente.removerCliente(tabelaClientes, tabelaCarrinho, tabelaCompras);
+                    break;
+                case 0:
+                    menuPrincipal();
+                    break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Por favor, digite um número inteiro.\n");
@@ -58,11 +76,21 @@ public class Aplicacao {
         menu.subMenuProdutos();
         try {
             switch (scanner.nextInt()) {
-                case 1: Produto.visualizarProdutos(tabelaProdutos); break;
-                case 2: Produto.cadastrarProduto(tabelaProdutos); break;
-                case 3: Produto.removerProduto(tabelaProdutos); break;
-                case 4: Produto.editarProduto(tabelaProdutos); break;
-                case 0: menuPrincipal(); break;
+                case 1:
+                    Produto.visualizarProdutos(tabelaProdutos);
+                    break;
+                case 2:
+                    Produto.cadastrarProduto(tabelaProdutos);
+                    break;
+                case 3:
+                    Produto.removerProduto(tabelaProdutos);
+                    break;
+                case 4:
+                    Produto.editarProduto(tabelaProdutos);
+                    break;
+                case 0:
+                    menuPrincipal();
+                    break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Por favor, digite um número inteiro.\n");
@@ -75,11 +103,20 @@ public class Aplicacao {
         menu.subMenuCarrinho();
         try {
             switch (scanner.nextInt()) {
-                case 1: ItemCompra.adicionarItemNoCarrinho(tabelaCarrinho, tabelaProdutos); break;
-                case 2: ItemCompra.removerItemNoCarrinho(tabelaCarrinho, tabelaProdutos); break;
-                case 3: ItemCompra.verCarrinho(tabelaCarrinho); break;
-                case 4: ItemCompra.comprarItensDoCarrinho(tabelaCarrinho, tabelaCompras);
-                case 0: menuPrincipal(); break;
+                case 1:
+                    ItemCompra.adicionarItemNoCarrinho(tabelaCarrinho, tabelaProdutos);
+                    break;
+                case 2:
+                    ItemCompra.removerItemNoCarrinho(tabelaCarrinho, tabelaProdutos);
+                    break;
+                case 3:
+                    ItemCompra.verCarrinho(tabelaCarrinho);
+                    break;
+                case 4:
+                    ItemCompra.comprarItensDoCarrinho(tabelaCarrinho, tabelaCompras);
+                case 0:
+                    menuPrincipal();
+                    break;
             }
         } catch (InputMismatchException e) {
             System.out.println("Entrada inválida. Por favor, digite um número inteiro.\n");

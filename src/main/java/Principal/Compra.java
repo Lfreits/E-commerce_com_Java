@@ -3,6 +3,7 @@ package Principal;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
 import static Principal.Ecommerce.scanner;
 
 // Compra finalizada
@@ -63,11 +64,12 @@ public class Compra {
                 nomeCliente = scanner.nextLine();
                 if (nomeCliente.equalsIgnoreCase("0")) {
                     System.out.println("\n");
-                    Ecommerce.app.menuPrincipal(); return;
+                    Ecommerce.app.menuPrincipal();
+                    return;
                 }
             }
         }
         System.out.println("\n");
-        Ecommerce.app.menuPrincipal(); return;
+        Ecommerce.app.menuPrincipal();
     }
 }
